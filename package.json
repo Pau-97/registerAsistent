@@ -1,0 +1,17 @@
+{
+  "name": "asistencia",
+  "version": "1.0.0",
+  "description": "script para registrar mis asistencias",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "moment-timezone": "^0.5.34",
+    "qs": "^6.10.3"
+  }
+}
