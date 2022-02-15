@@ -1,47 +1,47 @@
 const { startRegisterIT, endRegisterIT, startBreakIT, endBreakIT } = require('./services/register');
-const { timeNowPeru } = require('./utils/date');
+const { timeNowPeru, dateNowPeru } = require('./utils/date');
 
 const startRegister = async () => {
     try {
-        console.log('INIT SCRIPT - ASISTENCIA');
+        console.log('INIT SCRIPT - INICIO ASISTENCIA', dateNowPeru());
         await startRegisterIT();
     } catch (error) {
         console.log(error);
     } finally {
-        console.log('END SCRIPT - ASISTENCIA');
+        console.log('END SCRIPT - REGISTRO ASISTENCIA',dateNowPeru());
     }
 }
 
 const startBreak = async () => {
     try {
-        console.log('INIT SCRIPT - ASISTENCIA');
+        console.log('INIT SCRIPT - INICIO BREAK',dateNowPeru());
         await startBreakIT();
     } catch (error) {
         console.log(error);
     } finally {
-        console.log('END SCRIPT - ASISTENCIA');
+        console.log('END SCRIPT - REGISTRO BREAK',dateNowPeru());
     }
 }
 
 const endBreak = async () => {
     try {
-        console.log('INIT SCRIPT - ASISTENCIA');
+        console.log('INIT SCRIPT - FIN BREAK', dateNowPeru());
         await endBreakIT();
     } catch (error) {
         console.log(error);
     } finally {
-        console.log('END SCRIPT - ASISTENCIA');
+        console.log('END SCRIPT - REGISTRO FIN BREAK', dateNowPeru());
     }
 }
 
 const endRegister = async () => {
     try {
-        console.log('INIT SCRIPT - ASISTENCIA');
+        console.log('INIT SCRIPT - FINAL ASISTENCIA', dateNowPeru());
         await endRegisterIT();
     } catch (error) {
         console.log(error);
     } finally {
-        console.log('END SCRIPT - ASISTENCIA');
+        console.log('END SCRIPT - REGISTRO FINAL ASISTENCIA', dateNowPeru());
     }
 }
 
@@ -50,16 +50,16 @@ const initStart = async () => {
         const time = timeNowPeru();
 
         switch(time) {
-            case 8:
+            case '08':
                 await startRegister();
                 break;
-            case 13:
+            case '13':
                 await startBreak();
                 break;
-            case 14:
+            case '14':
                 await endBreak();
                 break;
-            case 19:
+            case '19':
                 await endRegister();
                 break;
             default:
