@@ -46,7 +46,7 @@ const endRegister = async () => {
 }
 
 const sleep = () => new Promise((resolve) => {
-    let delay = parseInt(Math.random() * 15) * 1000;
+    let delay = ( parseInt(Math.random() * 15) ) * 10000;
     setTimeout(resolve, delay)
 });
 
