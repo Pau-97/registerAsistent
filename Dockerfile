@@ -14,4 +14,4 @@ RUN echo "America/Lima" >  /etc/timezone
 
 RUN /usr/bin/crontab /srv/app/cron/crontab.txt
 RUN pwd && ls -la ./cron
-ENTRYPOINT ["timeout", "3600", "sh", "/srv/app/cron/entry.sh"]
+ENTRYPOINT ["sh", "/srv/app/cron/entry.sh"]
