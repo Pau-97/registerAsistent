@@ -8,8 +8,8 @@ const getTokenIT = async () => {
     try {
 
         let userData = qs.stringify({
-            'email': 'pcarbajal@itdata.com.pe',
-            'password': '@Pau1997' 
+            'email': config.userEmailIT,
+            'password': config.passIT 
         });
 
         const loginConfig = {
@@ -24,7 +24,6 @@ const getTokenIT = async () => {
         const response = await axios(loginConfig);
         const responseTOKEN = await JSON.stringify(response.data);
         const token = await JSON.parse(responseTOKEN)
-        await sendSMS(`TOKEN OBTENIDO ITDATA ${dateNowPeru()}`);
         return token.data.token;
     } catch (error) {
         console.log('ERROR AL OBTENER TOKEN', error);
@@ -53,7 +52,7 @@ const startRegisterIT = async () => {
         const response = await axios(startConfig);
         const responseData = await JSON.stringify(response.data);
         console.log(responseData);
-        await sendSMS(`INICIO ACTIVIDADES ITDATA ${dateNowPeru()}`);
+        await sendSMS(`INICIO ACTIVIDADES ${dateNowPeru()}`);
         return responseData;
     } catch (error) {
         console.log(error);
@@ -83,7 +82,7 @@ const startBreakIT = async () => {
         const response = await axios(breakConfig);
         const responseData = await JSON.stringify(response.data);
         console.log(responseData);
-        await sendSMS(`INICIO BREAK ITDATA ${dateNowPeru()}`);
+        await sendSMS(`INICIO BREAK ${dateNowPeru()}`);
         return responseData;
     } catch (error) {
         console.log(error);
@@ -112,7 +111,7 @@ const endBreakIT = async () => {
         const response = await axios(breakConfig);
         const responseData = await JSON.stringify(response.data);
         console.log(responseData);
-        await sendSMS(`FIN BREAK ITDATA ${dateNowPeru()}`);
+        await sendSMS(`FIN BREAK ${dateNowPeru()}`);
         return responseData;
     } catch (error) {
         console.log(error);
@@ -140,7 +139,7 @@ const endRegisterIT = async () => {
 
         const response = await axios(endConfig);
         const responseData = await JSON.stringify(response.data);
-        await sendSMS(`FIN ACTIVIDADES ITDATA ${dateNowPeru()}`);
+        await sendSMS(`FIN ACTIVIDADES ${dateNowPeru()}`);
         console.log(responseData);
         return responseData;
     } catch (error) {
