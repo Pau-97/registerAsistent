@@ -1,1 +1,1 @@
-0 * * * * sleep $((( RANDOM % 10 )+1))m && node /srv/app/index.js >> /srv/app/cron/asistencia.log 2>&1
+0 * * * * sleep $((( RANDOM % 20 )+1))m && node /srv/app/index.js >> /srv/app/cron/asistencia.log 2>&1
