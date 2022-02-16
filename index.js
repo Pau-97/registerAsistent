@@ -45,34 +45,24 @@ const endRegister = async () => {
     }
 }
 
-const sleep = () => new Promise((resolve) => {
-    let delay = ( parseInt(Math.random() * 15) ) * 10000;
-    setTimeout(resolve, delay)
-});
-
 const initStart = async () => {
     try {
         const time = timeNowPeru();
         console.log(time);
         switch(time) {
             case '08':
-                await sleep();
                 await startRegister();
                 break;
             case '13':
-                await sleep();
                 await startBreak();
                 break;
             case '14':
-                await sleep();
                 await endBreak();
                 break;
             case '19':
-                await sleep();
                 await endRegister();
                 break;
             default:
-                await sleep();
                 console.log('NO ENTRO A NINGUNA OPCION', dateNowPeru());
                 break;
         }
